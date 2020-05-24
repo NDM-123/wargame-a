@@ -16,22 +16,22 @@ using namespace std;
 class Soldier {
 
 private:
-    uint soldierId;
-    uint initial_health;
-    uint damage;
+    unsigned int soldierId;
+    unsigned int initial_health;
+    unsigned int damage;
 
-    double distance(uint x1, uint y1, uint x2, uint y2){
+    double distance(unsigned int x1, unsigned int y1, unsigned int x2, unsigned int y2){
         return sqrt(pow(x1 - x2,2) + pow(y1 - y2,2));}
 
 public:
-    Soldier(uint sid, uint h, int d) : soldierId(sid), initial_health(h), damage(d) { }
+    Soldier(unsigned int sid, unsigned int h, int d) : soldierId(sid), initial_health(h), damage(d) { }
     virtual ~Soldier() {}
 
     virtual void attack (std::vector<std::vector<Soldier*>> &soldi, pair<int,int> location) = 0;
-    uint getSoldierId() ;
-    uint getHealth() ;
-    void setHealth(uint health) ;
-    uint getDamage() ;
+    unsigned int getSoldierId() ;
+    unsigned int getHealth() ;
+    void setHealth(unsigned int health) ;
+    unsigned int getDamage() ;
 };
 
 
