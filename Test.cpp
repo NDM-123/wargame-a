@@ -3,7 +3,6 @@
 #include <stdexcept>
 
 #include "DemoGame.hpp"
-#include "Board.hpp"
 #include "FootSoldier.hpp"
 #include "FootCommander.hpp"
 #include "Sniper.hpp"
