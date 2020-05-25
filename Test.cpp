@@ -233,3 +233,4 @@ TEST_CASE("3 soldiers VS 3 soldiers") {
 	for(int i=0;i<20;i++){
     CHECK(board.has_soldiers(i));
 }
+}
