@@ -7,8 +7,8 @@
  * @author Erel Segal-Halevi
  * @since  2020-05
  */
-
-//#include <string>
+#include <iostream>
+#include <string>
 #include <vector>
 #include <stdexcept>
 #include "Soldier.hpp"
