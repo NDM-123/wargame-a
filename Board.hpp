@@ -8,7 +8,7 @@
  * @since  2020-05
  */
 
-#include <string>
+//#include <string>
 #include <vector>
 #include <stdexcept>
 #include "Soldier.hpp"
