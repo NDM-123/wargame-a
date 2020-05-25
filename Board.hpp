@@ -46,11 +46,6 @@ class Board {
 
     // returns true iff the board contains one or more soldiers of the given player.
     bool has_soldiers(uint player_number) const;
-    
-    ~Board()
-    {
-      board.clear();
-    }
 };
 
 }
