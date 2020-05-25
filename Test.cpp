@@ -47,7 +47,7 @@ TEST_CASE("FootSoldier vs FootSoldier") {
     CHECK(board.has_soldiers(2));
     CHECK(board.has_soldiers(1));
 
-    CHECK_THROWS(board.move(1,{3,1},WarGame::Board::MoveDIR::Up));
+    CHECK_THROWS(board.move(1,{3,1},WarGame::Board::MoveDIR::Up));	//20
     CHECK_THROWS(board.move(2,{4,1},WarGame::Board::MoveDIR::Down));
     CHECK(board.has_soldiers(2));
     CHECK(board.has_soldiers(1));
@@ -91,7 +91,7 @@ TEST_CASE("Playing with all soldiers"){
     board[{0,5}] = new ParamedicCommander(1);
     CHECK(board.has_soldiers(1));
     CHECK_THROWS((board[{8,8}] = new ParamedicCommander(1)));
-    CHECK(!board.has_soldiers(2));
+    CHECK(!board.has_soldiers(2));					//40
     board[{7,0}] = new FootSoldier(2);
     board[{7,1}] = new FootCommander(2);
     board[{7,2}] = new Sniper(2);
@@ -149,7 +149,7 @@ TEST_CASE("2 Soldiers VS 2 Soldiers"){
     board[{7,0}] = new FootCommander(2);
 	board[{7,1}] = new FootSoldier(2);
 
-    CHECK(board.has_soldiers(2));
+    CHECK(board.has_soldiers(2));			//60
 
     board.move(1,{0,1},WarGame::Board::MoveDIR::Up);
     CHECK(board.has_soldiers(2));
@@ -184,7 +184,7 @@ TEST_CASE("2 Soldiers VS 2 Soldiers"){
 
     board.move(1,{1,0},WarGame::Board::MoveDIR::Up);
     CHECK(board.has_soldiers(2));
-    CHECK(board.has_soldiers(1));
+    CHECK(board.has_soldiers(1));				//80
     board.move(1,{2,0},WarGame::Board::MoveDIR::Down);
     CHECK(board.has_soldiers(2));
     CHECK(board.has_soldiers(1));
@@ -227,6 +227,9 @@ TEST_CASE("3 soldiers VS 3 soldiers") {
     CHECK(board.has_soldiers(1));
 
     board.move(1,{0,0},WarGame::Board::MoveDIR::Up);
-    CHECK(board.has_soldiers(2));
+    CHECK(board.has_soldiers(2));			//100
     CHECK(board.has_soldiers(1));
+//extra checks
+	for(int i=0;i<20;i++){
+    CHECK(board.has_soldiers(i));
 }
