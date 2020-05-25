@@ -49,8 +49,8 @@ return a;}
 
     // returns true iff the board contains one or more soldiers of the given player.
     bool has_soldiers(unsigned int player_number) const{return false;}
-  
-~Board()
+
+ ~Board()
     {
       for (auto row: board) {
 		 		for (auto soldier: row) {

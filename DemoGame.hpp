@@ -46,8 +46,8 @@ namespace WarGame {
 			// If no player won, return "tie":
 			return 0;
 		}
- 	~DemoGame() {
-			 delete board;
+~DemoGame() {
+			
 		 }
 	};
 }
