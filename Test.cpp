@@ -138,7 +138,7 @@ TEST_CASE("Playing with all soldiers"){
 }
 
 TEST_CASE("2 Soldiers VS 2 Soldiers"){
-    WarGame::Board board(6,6);
+    WarGame::Board board(10,10);
     CHECK(!board.has_soldiers(1));
     board[{0,1}] = new FootSoldier(1);
     CHECK_THROWS((board[{0,1}] = new FootSoldier(1)));
