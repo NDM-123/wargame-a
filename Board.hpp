@@ -1,4 +1,3 @@
-#pragma once
 /**
  * Header file for the board of the war game.
  * 
@@ -23,16 +22,14 @@ class Board {
   public:
     enum MoveDIR { Up, Down, Right, Left };
     
-    Board(unsigned int numRows, unsigned int numCols) : 
+    Board(uint numRows, uint numCols) : 
       board(numRows, std::vector<Soldier*>(numCols, nullptr)) {}
 
     // operator for putting soldiers on the game-board during initialization.
-    Soldier*& operator[](std::pair<int,int> location){Soldier* a;
-return a;}
+    Soldier*& operator[](std::pair<int,int> location);
     
     // operator for reading which soldiers are on the game-board.
-    Soldier* operator[](std::pair<int,int> location) const{Soldier* a;
-return a;}
+    Soldier* operator[](std::pair<int,int> location) const;
     
     // The function "move" tries to move the soldier of player "player"
     //     from the "source" location to the "target" location,
@@ -45,19 +42,13 @@ return a;}
     // IMPLEMENTATION HINT: Do not write "if" conditions that depend on the type of soldier!
     // Your code should be generic. All handling of different types of soldiers 
     //      must be handled by polymorphism.
-    void move(unsigned int player_number, std::pair<int,int> source, MoveDIR direction){return;}
+    void move(uint player_number, std::pair<int,int> source, MoveDIR direction);
 
     // returns true iff the board contains one or more soldiers of the given player.
-    bool has_soldiers(unsigned int player_number) const{return false;}
-
- ~Board()
+    bool has_soldiers(uint player_number) const;
+    
+    ~Board()
     {
-      for (auto row: board) {
-		 		for (auto soldier: row) {
-		 			if (soldier)
-		 				delete soldier;
-		 		}
-		 	}
       board.clear();
     }
 };
