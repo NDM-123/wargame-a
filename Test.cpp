@@ -18,7 +18,7 @@ int width=6;
 /////enter solder to player 1
     CHECK(!board.has_soldiers(1));
     board[{1,0}] = new FootSoldier(1);
-    CHECK(board.has_soldiers(1))
+    CHECK(board.has_soldiers(1));
 /////enter solder to player 2
 	    
     CHECK(!board.has_soldiers(2));
