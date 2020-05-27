@@ -1,7 +1,6 @@
 #include "doctest.h"
 #include <iostream>
 #include <stdexcept>
-
 #include "DemoGame.hpp"
 #include "FootSoldier.hpp"
 #include "FootCommander.hpp"
@@ -12,16 +11,20 @@
 #include <cassert>
 
 
-TEST_CASE("FootSoldier vs FootSoldier") {
-    WarGame::Board board(6,6);
+TEST_CASE("FootSoldier against FootSoldier") {
+int length=6;
+int width=6;
+    WarGame::Board board(length,width);
+/////enter solder to player 1
     CHECK(!board.has_soldiers(1));
     board[{1,0}] = new FootSoldier(1);
-    CHECK(board.has_soldiers(1));
-
+    CHECK(board.has_soldiers(1))
+/////enter solder to player 2
+	    
     CHECK(!board.has_soldiers(2));
 	board[{3,2}] = new FootSoldier(2);
     CHECK(board.has_soldiers(2));
-
+//start game
     board.move(1,{1,1},WarGame::Board::MoveDIR::Right);
     CHECK(board.has_soldiers(1));
     CHECK(board.has_soldiers(2));
@@ -62,14 +65,20 @@ TEST_CASE("FootSoldier vs FootSoldier") {
 
 
 TEST_CASE("Sniper soldier VS Sniper soldier") {
-    WarGame::Board board(10,10);
+int length=10;
+int width=10;
+    WarGame::Board board(length,width);
+/////enter solder to player 1
+
     CHECK(!board.has_soldiers(1));
     board[{0,1}] = new Sniper(1);
     CHECK(board.has_soldiers(1));
+/////enter solder to player 2
 
     CHECK(!board.has_soldiers(2));
 	board[{7,1}] = new Sniper(2);
     CHECK(board.has_soldiers(2));
+//start game
 
     board.move(1,{0,1},WarGame::Board::MoveDIR::Up);
     CHECK(board.has_soldiers(2));
@@ -81,7 +90,9 @@ TEST_CASE("Sniper soldier VS Sniper soldier") {
 }
 
 TEST_CASE("Playing with all soldiers"){
-    WarGame::Board board(10,10);
+int length=10;
+int width=10;
+    WarGame::Board board(length,width);
     CHECK(!board.has_soldiers(1));
     board[{0,0}] = new FootSoldier(1);
     board[{0,1}] = new FootCommander(1);
@@ -138,19 +149,24 @@ TEST_CASE("Playing with all soldiers"){
 }
 
 TEST_CASE("2 Soldiers VS 2 Soldiers"){
-    WarGame::Board board(10,10);
+int length=10;
+int width=10;
+    WarGame::Board board(length,width);
+	/////enter solder to player 1
+
     CHECK(!board.has_soldiers(1));
     board[{0,1}] = new FootSoldier(1);
     CHECK_THROWS((board[{0,1}] = new FootSoldier(1)));
     board[{0,0}] = new FootCommander(1);
     CHECK(board.has_soldiers(1));
+/////enter solder to player 2
 
     CHECK(!board.has_soldiers(2));
     board[{7,0}] = new FootCommander(2);
 	board[{7,1}] = new FootSoldier(2);
 
     CHECK(board.has_soldiers(2));
-
+//start game
     board.move(1,{0,1},WarGame::Board::MoveDIR::Up);
     CHECK(board.has_soldiers(2));
     CHECK(board.has_soldiers(1));
@@ -198,13 +214,18 @@ TEST_CASE("2 Soldiers VS 2 Soldiers"){
 }
 
 TEST_CASE("3 soldiers VS 3 soldiers") {
-    WarGame::Board board(8,8);
+   int length=8;
+int width=8;
+    WarGame::Board board(length,width);
+/////enter solder to player 1
+
     CHECK(!board.has_soldiers(1));
     board[{0,1}] = new FootSoldier(1);
     CHECK_THROWS((board[{0,1}] = new FootSoldier(1)));
     board[{0,0}] = new FootCommander(1);
     board[{0,2}] = new FootSoldier(1);
     CHECK(board.has_soldiers(1));
+/////enter solder to player 2
 
     CHECK(!board.has_soldiers(2));
     board[{7,0}] = new FootCommander(2);
@@ -212,7 +233,7 @@ TEST_CASE("3 soldiers VS 3 soldiers") {
     board[{7,2}] = new FootSoldier(2);
 
     CHECK(board.has_soldiers(2));
-
+//start game
     board.move(1,{0,1},WarGame::Board::MoveDIR::Up);
     CHECK(board.has_soldiers(2));
     CHECK(board.has_soldiers(1));
