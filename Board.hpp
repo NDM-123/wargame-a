@@ -23,7 +23,14 @@ class Board {
     enum MoveDIR { Up, Down, Right, Left };
     
     Board(uint numRows, uint numCols) : 
-      board(numRows, std::vector<Soldier*>(numCols, nullptr)) {}
+      board(numRows, std::vector<Soldier*>(numCols, nullptr)) {
+ for(int i= 0; i< board.size(); ++i){
+			for(int j=0; j< board[i].size(); ++j) {
+				 (*this)[{i, j}]=NULL;
+		
+			}
+		}
+}
 
     // operator for putting soldiers on the game-board during initialization.
     Soldier*& operator[](std::pair<int,int> location);
@@ -49,8 +56,9 @@ class Board {
     
     ~Board()
     {
-      board.clear();
-    }
+ 
+board.clear();
+}
 };
 
 }
