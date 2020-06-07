@@ -36,7 +36,7 @@ namespace WarGame
     {
 	    
         	Soldier* soldi = (*this)[source];
-		if(soldi==NULL || soldi->getSoldierId() != pn)throw invalid_argument("invalid argument");
+		if(soldi==nullptr || soldi->getSoldierId() != pn)throw invalid_argument("invalid argument");
 		pair<int, int> dest;
 		switch (direction)
 		{
