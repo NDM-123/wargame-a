@@ -54,13 +54,12 @@ namespace WarGame
 			dest= make_pair(source.first, source.second+1);
 			break;
 		}
-	if(dest.first >= board.size() || dest.first < 0 || dest.second >= board.size() || dest.second < 0) 
+	if(dest.first<0 || dest.first>=board.size()|| dest.second<0 || dest.second>=board[dest.first].size()) 
 			throw invalid_argument("Outside of the board");
 	    
 		(*this)[source] = nullptr;	
-		if((*this)[dest] != nullptr) {
-			throw runtime_error("stepping on other soldier!\n");
-		}
+		if((*this)[dest] != nullptr) throw runtime_error("stepping on other soldier!\n");
+		
 		(*this)[dest] = soldi;
 		(*this)[source] = nullptr;
 		soldi->attack(board, dest);
