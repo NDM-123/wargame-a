@@ -56,7 +56,8 @@ namespace WarGame
 		}
 	if(dest.first<0 || dest.first>=board.size()|| dest.second<0 || dest.second>=board[dest.first].size()) 
 			throw invalid_argument("Outside of the board");
-	    
+	    if (soldi==nullptr||soldi->getSoldierId()!=pn||(*this)[dest]!=nullptr){
+		    throw invalid_argument("cant do");}
 		(*this)[source] = nullptr;	
 		if((*this)[dest] != nullptr) throw runtime_error("stepping on other soldier!\n");
 		
