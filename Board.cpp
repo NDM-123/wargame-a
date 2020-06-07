@@ -1,6 +1,4 @@
-//
-// Created by Ginton Durlacher on 24/05/2020.
-//
+
 
 #include "Board.hpp"
 
