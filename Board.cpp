@@ -33,11 +33,12 @@ namespace WarGame
     void Board::move(uint pn, std::pair<int,int> source, MoveDIR direction)
     {
 	    
-		if(dest.first >= board.size() || dest.first < 0 || dest.second >= board.size() || dest.second < 0) 
-			throw invalid_argument("Outside of the board");
         	Soldier* soldi = (*this)[source];
 		if(soldi==nullptr || soldi->getSoldierId() != pn)throw invalid_argument("invalid argument");
 		pair<int, int> dest;
+		if(dest.first >= board.size() || dest.first < 0 || dest.second >= board.size() || dest.second < 0) 
+			throw invalid_argument("Outside of the board");
+	    
 		switch (direction)
 		{
 		case Up:
